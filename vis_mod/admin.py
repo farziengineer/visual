@@ -2,5 +2,9 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from vis_mod.models import Document
+
+
+admin.site.register(Document)
 
 # Register your models here.

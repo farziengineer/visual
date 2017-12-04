@@ -6,31 +6,60 @@
     </head>
 
     <body>
-        <!-- List of uploaded documents -->
-        {% if documents %}
-            <ul>
-                {% for document in documents %}
-                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No documents.</p>
-        {% endif %}
 
         <!-- Upload form. Note enctype attribute! -->
-        <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <p>{{ form.non_field_errors }}</p>
+        <div style="margin: 0 auto; width:250px;" >
+            <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>{{ form.non_field_errors }}</p>
 
-            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+                <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 
-            <p>
-                {{ form.docfile.errors }}
-                {{ form.docfile }}
-            </p>
+                <p>
+                    {{ form.docfile.errors }}
+                    {{ form.docfile }}
+                </p>
 
-            <p><input type="submit" value="Upload"/></p>
-        </form>
+                <p><input type="submit" value="Upload"/></p>
+            </form>
+        </div>
+        <br><br>
+        <div>
+<figure style="display: inline-block;">
+  <p>        <img src="{{ lis.2 }}" height="200" width="200" hspace="40"> 
+
+  <figcaption>The input image which is to be encrypted.</figcaption>
+</figure>
+
+<figure style="display: inline-block;">
+  <p>        <img src="{{ lis.1 }}" height="200" width="200" hspace="40"> 
+
+  <figcaption>The first secret share generated</figcaption>
+</figure>
+
+<figure style="display: inline-block;">
+  <p>        <img src="{{ lis.0 }}" height="200" width="200" hspace="40"> 
+
+  <figcaption>The second secret share generated</figcaption>
+</figure>
+        
+
+<figure style="display: inline-block;">
+  <p>        <img src="{{ lis.3 }}" height="200" width="200" hspace="40"> 
+
+  <figcaption>XOR output is showing more contrast</figcaption>
+</figure>
+
+
+<figure style="display: inline-block;">
+  <p>        <img src="{{ lis.4 }}" height="200" width="200" hspace="40"> 
+
+  <figcaption>OR output is showing less contrast</figcaption>
+</figure>
+        
+
+
+        </div>
     </body>
 
 </html>
